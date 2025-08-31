@@ -107,7 +107,7 @@ This repository is part of the AWS Masterclass Series. It includes code examples
   - Demo On 2 Tier Architecture.
 
 ## SESSION - 21    
-    - Demo On 3 Tier Architecture.
+  - Demo On 3 Tier Architecture.
 
   
   
