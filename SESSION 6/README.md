@@ -33,3 +33,43 @@
 4. Wait for detachment before deleting or re-attaching.
 
 
+## **For Linux**
+
+
+| Step | Command                           | Description                       |
+| ---- | --------------------------------- | --------------------------------- |
+| 1    | `lsblk`                           | List all attached storage devices |
+| 2    | `sudo fdisk -l`                   | View detailed disk partition info |
+| 3    | `sudo file -s /dev/nvme1n1`       | Check existing file system        |
+| 4    | `sudo mkfs -t xfs /dev/nvme1n1`   | Create new XFS file system        |
+| 5    | `sudo file -s /dev/nvme1n1`       | Verify file system creation       |
+| 6    | `sudo mkdir /mydata`              | Create mount point directory      |
+| 7    | `sudo mount /dev/nvme1n1 /mydata` | Mount the EBS volume              |
+| 8    | `df -h`                           | Check available and mounted disks |
+
+And after taking the snapshot and creating a volume for it, follow the below commands
+
+| Step | Command                           | Description                       |
+| ---- | --------------------------------- | --------------------------------- |
+| 1    | `lsblk`                           | List all attached storage devices |
+| 2    | `sudo fdisk -l`                   | View detailed disk partition info |
+| 3    | `sudo file -s /dev/nvme1n1`       | Check existing file system        |
+| 4    | `sudo mkdir /mydata`              | Create mount point directory      |
+| 5    | `sudo mount /dev/nvme1n1 /mydata` | Mount the EBS volume              |
+
+
+
+## **For Windows**
+
+# Create a New Volume (For Unallocated Disks)
+
+- Right-click the *Unknown Disk* and select **Initialize Disk**.
+
+If the disk shows **Unallocated space**:
+- Right-click on the **Unallocated area** → **New Simple Volume**.
+- Follow the **New Simple Volume Wizard**:
+1. Specify volume size (use full size).
+2. Assign a drive letter (e.g., `E:`).
+3. Choose **NTFS** file system and set a **Volume Label** (optional).
+- Click **Finish** to create and format the new volume.
+
